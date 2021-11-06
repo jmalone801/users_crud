@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
+    <title>Edit User</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -14,31 +14,37 @@
             text-align: center;
         }
         .form-group {
-            width: 400px;
+            width: 463px;
         }
         #container {
             display: flex;
             justify-content: center;
         }
+        body {
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 <body>
-    <h1>Add a new user:</h1>
+    <h1>Edit {{user.first_name}}:</h1>
     <div id="container">
-        <form action="/users/new" method="post">
+        <form action="/edituser/{{user.id}}" method="post">
             <div class="form-group">
                 <label for="fname">First Name:</label>
-                <input type="text" class="form-control" id="fname" name="fname">
+                <input type="text" class="form-control" id="fname" name="fname" value="{{user.first_name}}">
             </div>
             <div class="form-group">
                 <label for="lname">Last Name:</label>
-                <input type="text" class="form-control" id="lname" name="lname">
+                <input type="text" class="form-control" id="lname" name="lname" value="{{user.last_name}}">
             </div>
             <div class="form-group">
                 <label for="email">Email Address:</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" value="{{user.email}}">
             </div>
-            <button type="submit" class="btn btn-primary">Create User</button>
+                <button type="submit" class="btn btn-primary">Update User</button>
+                <a href='/show/{{ user.id }}' class="btn btn-primary">Show User</a>
+                <a href="/" id="home" class="btn btn-primary" style="width: auto;">Create New User</a>
+                <a id="home" class="btn btn-primary" style="width: 80px;" href="/users">Home</a>
         </form>
     </div>
 </body>

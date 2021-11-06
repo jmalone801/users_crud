@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        * {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-top: 30px;
+            text-align: center;
+        }
+        #home {
+            display: flex;
+            justify-content: center;
+        }
+        body {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This User: {{user.first_name}}</h1>
+    <div class="card text-left" style="width: 400px;">
+        <div class="card-body">
+            <h5 class="card-title">User Information</h5>
+            <p class="card-text">Full Name: {{ user.first_name }}</p>
+            <p class="card-text">Email: {{ user.email }}</p>
+            <p class="card-text">ID#: {{ user.id }}</p>
+            <a href="/edit/{{ user.id }}">Edit</a>
+            <a href="/delete/{{ user.id }}">Delete</a>
+        </div>
+    </div><br>
+    <a id="home" class="btn btn-primary" style="width: 80px;" href="/users">Home</a>
+</body>
+
+</html>
